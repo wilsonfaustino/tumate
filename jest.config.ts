@@ -1,0 +1,31 @@
+export default {
+  clearMocks: true,
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.ts(x)?',
+    '!src/main.tsx',
+    '!src/**/*.d.ts(x)?',
+    '!src/**/*.stories.tsx',
+    '!src/**/types.ts',
+    '!src/styles/**/*.ts',
+    '!src/types/**/*.ts',
+  ],
+  coverageDirectory: 'coverage',
+  coveragePathIgnorePatterns: ['/node_modules/', 'src/utils'],
+  coverageProvider: 'v8',
+  preset: 'ts-jest',
+  modulePaths: ['<rootDir>/src'],
+  moduleDirectories: ['node_modules', '<rootDir>/src'],
+  moduleNameMapper: {
+    '~/(.*)': '<rootDir>/src/$1',
+    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/utils/mocks/filea.js',
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+  },
+  roots: ['<rootDir>'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['/node_modules/'],
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+  },
+}
